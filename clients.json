@@ -1,0 +1,25 @@
+{
+  "clinica_demo": {
+    "name": "Clinica Demo",
+    "business_type": "clinica",
+    "phone": "0722 000 000",
+    "email": "contact@clinicademo.ro",
+    "program": {
+      "luni_vineri": "08:00 - 20:00",
+      "sambata": "09:00 - 14:00",
+      "duminica": "Închis"
+    },
+    "services": [
+      "consultații",
+      "investigații de bază",
+      "programări",
+      "informații generale"
+    ],
+    "rules": [
+      "nu inventa prețuri",
+      "nu oferi diagnostice",
+      "nu oferi sfaturi medicale personalizate",
+      "dacă utilizatorul cere operator uman, spune că cererea poate fi transmisă recepției"
+    ]
+  }
+}
