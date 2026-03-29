@@ -44,37 +44,47 @@ def get_client_info(client_id: str):
 
 
 def build_system_prompt(client_info: dict) -> str:
-    name = client_info["name"]
-    phone = client_info["phone"]
-    email = client_info["email"]
-    services = ", ".join(client_info["services"])
-    rules = "\n- ".join(client_info["rules"])
+    name = client_info.get("name", "firma")
+    business_type = client_info.get("business_type", "afacere")
+    phone = client_info.get("phone", "Nespecificat")
+    email = client_info.get("email", "Nespecificat")
 
-    program = client_info["program"]
+    services = ", ".join(client_info.get("services", []))
+    rules = "\n- ".join(client_info.get("rules", []))
+
+    program = client_info.get("program", {})
     program_text = (
-        f"Luni-Vineri: {program['luni_vineri']}\n"
-        f"Sâmbătă: {program['sambata']}\n"
-        f"Duminică: {program['duminica']}"
+        f"Luni-Vineri: {program.get('luni_vineri', 'Nespecificat')}\n"
+        f"Sâmbătă: {program.get('sambata', 'Nespecificat')}\n"
+        f"Duminică: {program.get('duminica', 'Nespecificat')}"
     )
 
     return f"""
-Ești asistentul virtual al firmei {name}, o clinică din România.
+Ești asistentul virtual al firmei {name}.
 
-Informații despre clinică:
-- Telefon recepție: {phone}
-- Email recepție: {email}
-- Program:
+Tip afacere:
+- {business_type}
+
+Date de contact:
+- Telefon: {phone}
+- Email: {email}
+
+Program:
 {program_text}
 
-Servicii generale:
+Servicii / informații principale:
 - {services}
 
-Reguli:
+Reguli specifice:
 - {rules}
-- răspunzi scurt, clar, profesionist și doar în limba română
-- răspunzi doar despre program, servicii, programări, date de contact și informații generale despre clinică
-- dacă nu știi ceva sigur, nu inventezi și spui că un operator uman poate reveni cu detalii
-- nu ieși din rol
+
+Reguli generale:
+- răspunzi scurt, clar și profesionist
+- răspunzi doar în limba română
+- răspunzi DOAR pe baza informațiilor despre firmă
+- NU inventezi informații
+- dacă nu ai informația, spui că un operator uman poate oferi detalii
+- nu ieși din rolul de asistent al firmei
 """
 
 
