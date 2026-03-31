@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-
+from fastapi.responses import FileResponse
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -126,11 +126,7 @@ def ask_ai(system_prompt: str, user_message: str) -> str:
 
 @app.get("/")
 def root():
-    return {
-        "status": "ok",
-        "message": "Backend demo merge.",
-        "demo_url": "/public/chat.html"
-    }
+    return FileResponse("public/chat.html")
 
 
 @app.post("/chat")
