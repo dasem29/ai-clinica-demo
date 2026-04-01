@@ -5703,7 +5703,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="166"
                         x-column="16" x-component="span" x-id="ConversionSections_166_16" x-dynamic="true"
                         x-source-type="prop" x-source-var="contactContent" x-source-path="labels.businessType"
-                        x-source-editable="false">Business type</span><select required="" name="businessType"
+                        x-source-editable="false">Business type</span><select id="lead-business" required="" name="businessType"
                         data-testid="lead-form-business-type-select"
                         class="w-full appearance-none rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 focus:border-sky-300/60"
                         x-file-name="ConversionSections" x-line-number="169" x-column="16" x-component="select"
@@ -6002,7 +6002,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const business = document.getElementById("lead-business")?.value || "";
 
     if (!name || !email || !business) {
-      alert("Completează tot boss");
+      alert("Please complete all required fields.");
       return;
     }
 
