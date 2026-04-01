@@ -127,6 +127,10 @@ def ask_ai(system_prompt: str, user_message: str) -> str:
 @app.get("/")
 def root():
     return FileResponse("public/index.html")
+  
+@app.get("/chat.html")
+def chat_page():
+    return FileResponse("public/chat.html")  
 
 
 @app.post("/chat")
