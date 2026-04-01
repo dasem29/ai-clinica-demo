@@ -5959,9 +5959,55 @@ document.addEventListener("click", function (e) {
   }
 }, true);
 </script>
+... tot HTML-ul tău ...
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    if (!form) {
+        console.log("NU GASIM FORM ❌");
+        return;
+    }
+
+    console.log("FORM GASIT ✅");
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        console.log("SUBMIT TRIGGER 🔥");
+
+        const name = document.getElementById("lead-name")?.value || "";
+        const email = document.getElementById("lead-email")?.value || "";
+        const message = document.getElementById("lead-message")?.value || "";
+        const business = document.getElementById("lead-business")?.value || "";
+
+        console.log({ name, email, message, business });
+
+        const res = await fetch("/lead", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                business_type: business,
+                email,
+                message
+            })
+        });
+
+        console.log("REQUEST TRIMIS 🔥");
+
+        alert("Trimis boss 🔥");
+    });
+});
+
+
+
  
  
- <script>
+ 
 document.addEventListener("click", function (e) {
   const el = e.target.closest("a, button, [role='button']");
   if (!el) return;
@@ -5987,6 +6033,7 @@ document.addEventListener("click", function (e) {
     window.location.href = "/clinica.demo";
   }
 }, true);
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("lead-submit");
