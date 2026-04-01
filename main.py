@@ -7,10 +7,14 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from openai import OpenAI
+from fastapi.staticfiles import StaticFiles
 
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="public"), name="static")
+
 
 app.add_middleware(
     CORSMiddleware,
