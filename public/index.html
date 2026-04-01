@@ -5692,7 +5692,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         x-file-name="ConversionSections" x-line-number="150" x-column="16" x-component="span"
                         x-id="ConversionSections_150_16" x-dynamic="true" x-source-type="prop"
                         x-source-var="contactContent" x-source-path="labels.name"
-                        x-source-editable="false">Name</span><input required="" id="lead.name" placeholder="you@company.com"
+                        x-source-editable="false">Name</span><input required="" id="lead-name" placeholder="you@company.com"
                         data-testid="lead-form-name-input"
                         class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
                         x-file-name="ConversionSections" x-line-number="153" x-column="16" x-component="input"
@@ -5703,7 +5703,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="166"
                         x-column="16" x-component="span" x-id="ConversionSections_166_16" x-dynamic="true"
                         x-source-type="prop" x-source-var="contactContent" x-source-path="labels.businessType"
-                        x-source-editable="false">Business type</span><select id="lead.business_type" required="" name="businessType"
+                        x-source-editable="false">Business type</span><select id="lead-business_type" required="" name="businessType"
                         data-testid="lead-form-business-type-select"
                         class="w-full appearance-none rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 focus:border-sky-300/60"
                         x-file-name="ConversionSections" x-line-number="169" x-column="16" x-component="select"
@@ -5750,7 +5750,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                       class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="187"
                       x-column="14" x-component="span" x-id="ConversionSections_187_14" x-dynamic="true"
                       x-source-type="prop" x-source-var="contactContent" x-source-path="labels.email"
-                      x-source-editable="false">Email</span><input required=""  id="lead.email" placeholder="you@company.com"
+                      x-source-editable="false">Email</span><input required=""  id="lead-email" placeholder="you@company.com"
                       data-testid="lead-form-email-input"
                       class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
                       x-file-name="ConversionSections" x-line-number="190" x-column="14" x-component="input"
@@ -5761,7 +5761,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                       class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="203"
                       x-column="14" x-component="span" x-id="ConversionSections_203_14" x-dynamic="true"
                       x-source-type="prop" x-source-var="contactContent" x-source-path="labels.message"
-                      x-source-editable="false">Optional message</span><textarea id="lead.message"     name="lead-message" rows="5"
+                      x-source-editable="false">Optional message</span><textarea id="lead-message"     name="lead-message" rows="5"
                       id="lead-message" placeholder="Tell us what kind of repetitive conversations you want to automate."
                       data-testid="lead-form-message-input"
                       class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
@@ -5960,49 +5960,10 @@ document.addEventListener("click", function (e) {
   }
 }, true);
 </script>
-... tot HTML-ul tău ...
+
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
 
-    if (!form) {
-        console.log("NU GASIM FORM ❌");
-        return;
-    }
-
-    console.log("FORM GASIT ✅");
-
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        console.log("SUBMIT TRIGGER 🔥");
-
-        const name = document.getElementById("lead-name")?.value || "";
-        const email = document.getElementById("lead-email")?.value || "";
-        const message = document.getElementById("lead-message")?.value || "";
-        const business = document.getElementById("lead-business")?.value || "";
-
-        console.log({ name, email, message, business });
-
-        const res = await fetch("/lead", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                business_type: business,
-                email,
-                message
-            })
-        });
-
-        console.log("REQUEST TRIMIS 🔥");
-
-        alert("Trimis boss 🔥");
-    });
-});
 
 
 
