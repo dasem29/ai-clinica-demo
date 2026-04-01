@@ -4027,20 +4027,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 </head>
 
 <body>
- <script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("a, button").forEach((el) => {
-    const text = (el.textContent || "").toLowerCase();
-    const containerText = ((el.closest("div, section, article")?.textContent) || "").toLowerCase();
-
-    if (text.includes("test live") && containerText.includes("medical clinic")) {
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
-        window.location.href = "/chat.html";
-      });
-    }
-  });
-});
+ 
 </script> 
   
   <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -4059,7 +4046,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4 sm:px-8 lg:px-10"
             x-file-name="LandingPage" x-line-number="31" x-column="8" x-component="div" x-id="LandingPage_31_8"
             x-dynamic="true" x-source-type="computed" x-source-editable="false"><a
-              href="https://conversation-ai-34.preview.emergentagent.com/#top" data-testid="site-logo-link"
+              href="#top" data-testid="site-logo-link"
               class="flex items-center gap-3 text-white" x-file-name="LandingPage" x-line-number="32" x-column="10"
               x-component="a" x-id="LandingPage_32_10" x-dynamic="false">
               <div
@@ -4071,19 +4058,19 @@ document.addEventListener("DOMContentLoaded", function () {
             </a>
             <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex" x-file-name="LandingPage"
               x-line-number="39" x-column="10" x-component="nav" x-id="LandingPage_39_10" x-dynamic="false"><a
-                href="https://conversation-ai-34.preview.emergentagent.com/#features" data-testid="nav-link-features"
+                href="#features" data-testid="nav-link-features"
                 class="nav-link" x-file-name="LandingPage" x-line-number="40" x-column="12" x-component="a"
                 x-id="LandingPage_40_12" x-dynamic="true" x-source-type="prop" x-source-var="content"
                 x-source-path="nav.features" x-source-editable="false">Features</a><a
-                href="https://conversation-ai-34.preview.emergentagent.com/#demo-hub" data-testid="nav-link-demo-hub"
+                href="#demo-hub" data-testid="nav-link-demo-hub"
                 class="nav-link" x-file-name="LandingPage" x-line-number="43" x-column="12" x-component="a"
                 x-id="LandingPage_43_12" x-dynamic="true" x-source-type="prop" x-source-var="content"
                 x-source-path="nav.demo" x-source-editable="false">Demo</a><a
-                href="https://conversation-ai-34.preview.emergentagent.com/#how-it-works"
+                href="#how-it-works"
                 data-testid="nav-link-how-it-works" class="nav-link" x-file-name="LandingPage" x-line-number="46"
                 x-column="12" x-component="a" x-id="LandingPage_46_12" x-dynamic="true" x-source-type="prop"
                 x-source-var="content" x-source-path="nav.howItWorks" x-source-editable="false">How It Works</a><a
-                href="https://conversation-ai-34.preview.emergentagent.com/#contact" data-testid="nav-link-contact"
+                href="#contact" data-testid="nav-link-contact"
                 class="nav-link" x-file-name="LandingPage" x-line-number="49" x-column="12" x-component="a"
                 x-id="LandingPage_49_12" x-dynamic="true" x-source-type="prop" x-source-var="content"
                 x-source-path="nav.contact" x-source-editable="false">Contact</a></nav>
@@ -4109,7 +4096,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   x-source-file-abs="/app/frontend/src/data/clientDialogContent.js" x-source-line="20"
                   x-source-path="label" x-source-editable="true" x-array-var="languageOptions"
                   x-array-file="@/data/clientDialogContent" x-array-line="20" x-array-item-param="option">RO</button>
-              </div><a href="https://conversation-ai-34.preview.emergentagent.com/#demo-hub"
+              </div><a href="#demo-hub"
                 data-testid="nav-cta-button" x-file-name="LandingPage" x-line-number="80" x-column="14" x-component="a"
                 x-id="LandingPage_80_14" x-dynamic="true" x-source-type="prop" x-source-var="content"
                 x-source-path="nav.cta" x-source-editable="false"
@@ -4190,7 +4177,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="flex flex-col gap-4 sm:flex-row" x-file-name="HeroSection" x-line-number="39" x-column="10"
                   x-component="div" x-id="HeroSection_39_10" x-dynamic="false"><a
-                    href="https://conversation-ai-34.preview.emergentagent.com/#demo-hub"
+                    href="#demo-hub"
                     data-testid="hero-primary-cta-button" x-file-name="HeroSection" x-line-number="45" x-column="14"
                     x-component="a" x-id="HeroSection_45_14" x-dynamic="true" x-source-type="prop"
                     x-source-var="heroContent" x-source-path="primaryCta" x-source-editable="false"
@@ -4202,7 +4189,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       aria-hidden="true">
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
-                    </svg></a><a href="https://conversation-ai-34.preview.emergentagent.com/#how-it-works"
+                    </svg></a><a href="#how-it-works"
                     data-testid="hero-secondary-cta-button" x-file-name="HeroSection" x-line-number="57" x-column="14"
                     x-component="a" x-id="HeroSection_57_14" x-dynamic="true" x-source-type="prop"
                     x-source-var="heroContent" x-source-path="secondaryCta" x-source-editable="false"
@@ -4612,7 +4599,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-clinic" data-discover="true">Test
+                      href="/chat.html" data-discover="true">Test
                       Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
@@ -4695,7 +4682,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-auto" data-discover="true">Test
+                      href="demo-auto" data-discover="true">Test
                       Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
@@ -4782,7 +4769,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-salon" data-discover="true">Test
+                      href="demo-salon" data-discover="true">Test
                       Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
@@ -4867,7 +4854,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-restaurant"
+                      href="demo-restaurant"
                       data-discover="true">Test Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round"
@@ -4958,7 +4945,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-hotel" data-discover="true">Test
+                      href="demo-hotel" data-discover="true">Test
                       Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
@@ -5047,7 +5034,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="DemoHubSection_79_18" x-dynamic="true" x-excluded="true" x-source-type="external"
                       x-source-var="businesses" x-source-editable="false" x-array-var="businesses"
                       x-array-item-param="business"
-                      href="https://conversation-ai-34.preview.emergentagent.com/demo-real-estate"
+                      href="demo-real-estate"
                       data-discover="true">Test Live<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round"
@@ -5821,7 +5808,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       x-id="InfoSections_176_14" x-dynamic="true" x-source-type="prop" x-source-var="ctaContent"
                       x-source-path="subheading" x-source-editable="false">Set up your AI assistant in minutes, not
                       weeks.</p>
-                  </div><a href="https://conversation-ai-34.preview.emergentagent.com/#demo-hub"
+                  </div><a href="#demo-hub"
                     data-testid="cta-section-button" x-file-name="InfoSections" x-line-number="186" x-column="14"
                     x-component="a" x-id="InfoSections_186_14" x-dynamic="true" x-source-type="prop"
                     x-source-var="ctaContent" x-source-path="button" x-source-editable="false"
@@ -5868,21 +5855,21 @@ document.addEventListener("DOMContentLoaded", function () {
                   x-source-path="menuTitle" x-source-editable="false">Menu</p>
                 <div class="mt-4 flex flex-col gap-3 text-sm text-slate-300" x-file-name="ConversionSections"
                   x-line-number="267" x-column="10" x-component="div" x-id="ConversionSections_267_10"
-                  x-dynamic="false"><a href="https://conversation-ai-34.preview.emergentagent.com/#features"
+                  x-dynamic="false"><a href="#features"
                     data-testid="footer-link-features" class="hover:text-white" x-file-name="ConversionSections"
                     x-line-number="268" x-column="12" x-component="a" x-id="ConversionSections_268_12" x-dynamic="true"
                     x-source-type="prop" x-source-var="footerContent" x-source-path="links.features"
                     x-source-editable="false">Features</a><a
-                    href="https://conversation-ai-34.preview.emergentagent.com/#demo-hub" data-testid="footer-link-demo"
+                    href="#demo-hub" data-testid="footer-link-demo"
                     class="hover:text-white" x-file-name="ConversionSections" x-line-number="271" x-column="12"
                     x-component="a" x-id="ConversionSections_271_12" x-dynamic="true" x-source-type="prop"
                     x-source-var="footerContent" x-source-path="links.demo" x-source-editable="false">Demo</a><a
-                    href="https://conversation-ai-34.preview.emergentagent.com/#how-it-works"
+                    href="#how-it-works"
                     data-testid="footer-link-how-it-works" class="hover:text-white" x-file-name="ConversionSections"
                     x-line-number="274" x-column="12" x-component="a" x-id="ConversionSections_274_12" x-dynamic="true"
                     x-source-type="prop" x-source-var="footerContent" x-source-path="links.howItWorks"
                     x-source-editable="false">How It Works</a><a
-                    href="https://conversation-ai-34.preview.emergentagent.com/#contact"
+                    href="#contact"
                     data-testid="footer-link-contact" class="hover:text-white" x-file-name="ConversionSections"
                     x-line-number="277" x-column="12" x-component="a" x-id="ConversionSections_277_12" x-dynamic="true"
                     x-source-type="prop" x-source-var="footerContent" x-source-path="links.contact"
@@ -5927,7 +5914,62 @@ document.addEventListener("DOMContentLoaded", function () {
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+<script>
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a");
+  if (!link) return;
 
+  const href = link.getAttribute("href") || "";
+
+  // lasă linkurile interne (chat.html, #, etc.)
+  if (
+    href.startsWith("/") ||
+    href.startsWith("#") ||
+    href.includes("chat.html")
+  ) {
+    return;
+  }
+
+  // blochează DOAR emergent / preview
+  if (
+    href.includes("emergent") ||
+    href.includes("preview") ||
+    href.includes("conversation-ai")
+  ) {
+    e.preventDefault();
+    return;
+  }
+}, true);
+</script>
+ 
+ 
+ <script>
+document.addEventListener("click", function (e) {
+  const el = e.target.closest("a, button, [role='button']");
+  if (!el) return;
+
+  const text = (el.textContent || "").toLowerCase();
+  const container = el.closest("div, section, article, li");
+  const containerText = (container?.textContent || "").toLowerCase();
+
+  const isClinic =
+    containerText.includes("medical clinic") ||
+    containerText.includes("clinic");
+
+  const isDemo =
+    text.includes("test live") ||
+    text.includes("live demo") ||
+    text.includes("try");
+
+  if (isClinic && isDemo) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    window.location.href = "/chat.html";
+  }
+}, true);
+</script>
 </body>
 
 </html>
