@@ -6023,10 +6023,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await res.json();
 
       if (data.status === "ok") {
-        alert("Trimis 🔥");
-      } else {
-        alert("Eroare...");
-      }
+  alert("Trimis 🔥");
+} else {
+  alert("Eroare: " + (data.message || "necunoscută"));
+}
 
     } catch (err) {
       alert("Server error");

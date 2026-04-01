@@ -74,7 +74,6 @@ Message: {message}
         server.login(smtp_user, smtp_pass)
         server.sendmail(smtp_user, recipient, msg.as_string())
 
-
 @app.post("/lead")
 def save_lead(lead: LeadForm):
     send_lead_email(
