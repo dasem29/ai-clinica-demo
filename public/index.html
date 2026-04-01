@@ -5692,7 +5692,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         x-file-name="ConversionSections" x-line-number="150" x-column="16" x-component="span"
                         x-id="ConversionSections_150_16" x-dynamic="true" x-source-type="prop"
                         x-source-var="contactContent" x-source-path="labels.name"
-                        x-source-editable="false">Name</span><input required="" placeholder="Your name"
+                        x-source-editable="false">Name</span><input required="" id="lead-email" placeholder="you@company.com"
                         data-testid="lead-form-name-input"
                         class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
                         x-file-name="ConversionSections" x-line-number="153" x-column="16" x-component="input"
@@ -5750,7 +5750,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                       class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="187"
                       x-column="14" x-component="span" x-id="ConversionSections_187_14" x-dynamic="true"
                       x-source-type="prop" x-source-var="contactContent" x-source-path="labels.email"
-                      x-source-editable="false">Email</span><input required="" placeholder="you@company.com"
+                      x-source-editable="false">Email</span><input required=""  id="lead-email" placeholder="you@company.com"
                       data-testid="lead-form-email-input"
                       class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
                       x-file-name="ConversionSections" x-line-number="190" x-column="14" x-component="input"
@@ -5762,7 +5762,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                       x-column="14" x-component="span" x-id="ConversionSections_203_14" x-dynamic="true"
                       x-source-type="prop" x-source-var="contactContent" x-source-path="labels.message"
                       x-source-editable="false">Optional message</span><textarea name="message" rows="5"
-                      placeholder="Tell us what kind of repetitive conversations you want to automate."
+                      id="lead-message" placeholder="Tell us what kind of repetitive conversations you want to automate."
                       data-testid="lead-form-message-input"
                       class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
                       x-file-name="ConversionSections" x-line-number="206" x-column="14" x-component="textarea"
@@ -5770,9 +5770,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                   <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
                     x-file-name="ConversionSections" x-line-number="217" x-column="12" x-component="div"
                     x-id="ConversionSections_217_12" x-dynamic="false"><button
+                    id="lead-submit"
                       class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-primary/90 h-9 py-2 rounded-full border border-sky-300/30 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500 px-7 text-slate-950 shadow-[0_20px_80px_rgba(66,147,255,0.35)] transition-transform duration-300 hover:-translate-y-0.5"
                       x-file-name="ConversionSections" x-line-number="218" x-column="14" x-component="Button"
-                      x-id="ConversionSections_218_14" x-dynamic="true" type="submit"
+                      x-id="ConversionSections_218_14" x-dynamic="true" type="button"
                       data-testid="lead-form-submit-button" x-source-type="prop" x-source-var="contactContent"
                       x-source-path="submit" x-source-editable="false">Get Started</button>
                     <div class="flex items-center gap-2 text-sm text-slate-400" x-file-name="ConversionSections"
@@ -5986,6 +5987,53 @@ document.addEventListener("click", function (e) {
     window.location.href = "/clinica.demo";
   }
 }, true);
+</script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("lead-submit");
+
+  if (!btn) return;
+
+  btn.addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("lead-name")?.value || "";
+    const email = document.getElementById("lead-email")?.value || "";
+    const message = document.getElementById("lead-message")?.value || "";
+    const business = document.getElementById("lead-business")?.value || "";
+
+    if (!name || !email || !business) {
+      alert("Completează tot boss");
+      return;
+    }
+
+    try {
+      const res = await fetch("/lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          business_type: business,
+          email: email,
+          message: message
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.status === "ok") {
+        alert("Trimis 🔥");
+      } else {
+        alert("Eroare...");
+      }
+
+    } catch (err) {
+      alert("Server error");
+    }
+  });
+});
 </script>
 </body>
 
