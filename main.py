@@ -32,7 +32,8 @@ BASE_DIR = Path(__file__).resolve().parent
 CLIENTS_FILE = BASE_DIR / "clients.json"
 PUBLIC_DIR = BASE_DIR / "public"
 
-app.mount("/public", StaticFiles(directory=PUBLIC_DIR), name="public")
+app.mount("/index_files", StaticFiles(directory=PUBLIC_DIR / "index_files"), name="index_files")
+app.mount("/static", StaticFiles(directory=PUBLIC_DIR), name="static")
 
 class LeadForm(BaseModel):
     name: str
