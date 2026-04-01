@@ -132,6 +132,9 @@ def root():
 def chat_page():
     return FileResponse("public/chat.html")  
 
+@app.get("/clinica.demo")
+def clinic_demo():
+    return FileResponse("public/chat.html")
 
 @app.post("/chat")
 def chat(msg: ChatMessage):
