@@ -8,8 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from openai import OpenAI
 from fastapi.staticfiles import StaticFiles
-import smtplib
-from email.mime.text import MIMEText
+
+
 
 from pydantic import BaseModel
 
@@ -35,54 +35,14 @@ PUBLIC_DIR = BASE_DIR / "public"
 app.mount("/index_files", StaticFiles(directory=PUBLIC_DIR / "index_files"), name="index_files")
 app.mount("/static", StaticFiles(directory=PUBLIC_DIR), name="static")
 
-class LeadForm(BaseModel):
-    name: str
-    business_type: str
-    email: str
-    message: str = ""
-    
 
+    
 class ChatMessage(BaseModel):
     client_id: str
     conversation_id: str
     message: str
 
 
-def send_lead_email(name: str, business_type: str, email: str, message: str):
-    smtp_host = os.environ["SMTP_HOST"]
-    smtp_port = int(os.environ["SMTP_PORT"])
-    smtp_user = os.environ["SMTP_USER"]
-    smtp_pass = os.environ["SMTP_PASS"]
-    recipient = os.environ["LEAD_RECIPIENT"]
-
-    subject = "New lead - ClientDialog"
-
-    body = f"""New lead received from clientdialog.com
-
-Name: {name}
-Business type: {business_type}
-Email: {email}
-Message: {message}
-"""
-
-    msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = subject
-    msg["From"] = smtp_user
-    msg["To"] = recipient
-
-    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
-        server.login(smtp_user, smtp_pass)
-        server.sendmail(smtp_user, recipient, msg.as_string())
-
-@app.post("/lead")
-def save_lead(lead: LeadForm):
-    send_lead_email(
-        lead.name,
-        lead.business_type,
-        lead.email,
-        lead.message
-    )
-    return {"status": "ok"}
 
 def load_clients():
     with open(CLIENTS_FILE, "r", encoding="utf-8") as f:

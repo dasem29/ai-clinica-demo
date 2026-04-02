@@ -5681,9 +5681,30 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     x-source-path="cardCopy" x-source-editable="false">Share your details and we’ll map the best
                     ClientDialog demo and setup path for your business.</p>
                 </div>
-                <form data-testid="lead-form" class="space-y-5" x-file-name="ConversionSections" x-line-number="147"
-                  x-column="10" x-component="form" x-id="ConversionSections_147_10" x-dynamic="true"
-                  x-source-type="computed" x-source-editable="false">
+                <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="cc538e4c-33a5-4b7b-83d5-291f57907172">
+  <input type="hidden" name="subject" value="New lead - ClientDialog">
+  <input type="hidden" name="from_name" value="ClientDialog Website">
+
+  <input id="lead-name" name="name" type="text" placeholder="Your name" required>
+
+  <select id="lead-business" name="business_type" required>
+    <option value="">Select business</option>
+    <option value="Medical Clinic">Medical Clinic</option>
+    <option value="Auto Service">Auto Service</option>
+    <option value="Beauty Salon">Beauty Salon</option>
+    <option value="Restaurant">Restaurant</option>
+    <option value="Hotel">Hotel</option>
+    <option value="Real Estate">Real Estate</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input id="lead-email" name="email" type="email" placeholder="you@company.com" required>
+
+  <textarea id="lead-message" name="message" placeholder="Tell us what kind of repetitive conversations you want to automate."></textarea>
+
+  <button id="lead-submit" type="submit">Get Started</button>
+</form>
                   <div class="grid gap-5 sm:grid-cols-2" x-file-name="ConversionSections" x-line-number="148"
                     x-column="12" x-component="div" x-id="ConversionSections_148_12" x-dynamic="false"><label
                       class="space-y-2" x-file-name="ConversionSections" x-line-number="149" x-column="14"
@@ -5703,7 +5724,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="166"
                         x-column="16" x-component="span" x-id="ConversionSections_166_16" x-dynamic="true"
                         x-source-type="prop" x-source-var="contactContent" x-source-path="labels.businessType"
-                        x-source-editable="false">Business type</span><select id="lead-business_type" required="" name="businessType"
+                        x-source-editable="false">Business type</span><select id="lead-business_type" required="" name="business_type"
                         data-testid="lead-form-business-type-select"
                         class="w-full appearance-none rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 focus:border-sky-300/60"
                         x-file-name="ConversionSections" x-line-number="169" x-column="16" x-component="select"
@@ -5761,7 +5782,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                       class="text-sm font-medium text-slate-200" x-file-name="ConversionSections" x-line-number="203"
                       x-column="14" x-component="span" x-id="ConversionSections_203_14" x-dynamic="true"
                       x-source-type="prop" x-source-var="contactContent" x-source-path="labels.message"
-                      x-source-editable="false">Optional message</span><textarea id="lead-message"     name="lead-message" rows="5"
+                      x-source-editable="false">Optional message</span><textarea id="lead-message"     name="message" rows="5"
                       id="lead-message" placeholder="Tell us what kind of repetitive conversations you want to automate."
                       data-testid="lead-form-message-input"
                       class="w-full rounded-2xl border border-white/10 bg-slate-950/75 px-4 py-3 text-sm text-white outline-none transition-colors duration-200 placeholder:text-slate-500 focus:border-sky-300/60"
@@ -5794,6 +5815,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                         x-source-editable="false">WhatsApp-friendly follow-up available</span></div>
                   </div>
                 </form>
+                <input type="hidden" name="access_key" value="xcc538e4c-33a5-4b7b-83d5-291f57907172">
+                <input type="hidden" name="subject" value="New lead - ClientDialog">
+                <input type="hidden" name="from_name" value="ClientDialog Website">
               </div>
             </div>
           </section>
@@ -5997,51 +6021,7 @@ document.addEventListener("click", function (e) {
 }, true);
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("lead-submit");
 
-  if (!btn) return;
-
-  btn.addEventListener("click", async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("lead-name")?.value || "";
-    const email = document.getElementById("lead-email")?.value || "";
-    const message = document.getElementById("lead-message")?.value || "";
-    const business = document.getElementById("lead-business")?.value || "";
-
-    if (!name || !email || !business) {
-      alert("Please complete all required fields.");
-      return;
-    }
-
-    try {
-      const res = await fetch("/lead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: name,
-          business_type: business,
-          email: email,
-          message: message
-        })
-      });
-
-      const data = await res.json();
-
-      if (data.status === "ok") {
-  alert("Trimis 🔥");
-} else {
-  alert("Eroare: " + (data.message || "necunoscută"));
-}
-
-    } catch (err) {
-      alert("Server error");
-    }
-  });
-});
 </script>
 </body>
 
