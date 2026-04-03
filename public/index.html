@@ -5962,9 +5962,11 @@ document.addEventListener("click", function (e) {
   const link = e.target.closest("a");
   if (!link) return;
 
+  // 🔥 IMPORTANT: ignoră complet zona formularului
+  if (link.closest("form")) return;
+
   const href = link.getAttribute("href") || "";
 
-  // lasă linkurile interne (chat.html, #, etc.)
   if (
     href.startsWith("/") ||
     href.startsWith("#") ||
@@ -5973,7 +5975,6 @@ document.addEventListener("click", function (e) {
     return;
   }
 
-  // blochează DOAR emergent / preview
   if (
     href.includes("emergent") ||
     href.includes("preview") ||
@@ -5984,45 +5985,5 @@ document.addEventListener("click", function (e) {
   }
 }, true);
 </script>
-
-
-<script>
-
-
-
-
- 
- 
- 
-document.addEventListener("click", function (e) {
-  const el = e.target.closest("a, button, [role='button']");
-  if (!el) return;
-
-  const text = (el.textContent || "").toLowerCase();
-  const container = el.closest("div, section, article, li");
-  const containerText = (container?.textContent || "").toLowerCase();
-
-  const isClinic =
-    containerText.includes("medical clinic") ||
-    containerText.includes("clinic");
-
-  const isDemo =
-    text.includes("test live") ||
-    text.includes("live demo") ||
-    text.includes("try");
-
-  if (isClinic && isDemo) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-
-    window.location.href = "/clinica.demo";
-  }
-}, true);
-
-
-
-</script>
 </body>
-
 </html>
