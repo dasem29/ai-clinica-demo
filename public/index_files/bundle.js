@@ -46845,7 +46845,7 @@ const sharedContact = {
 };
 const demoBusinessDefinitions = [{
   slug: "clinic",
-  route: "/demo-clinic",
+  route: "/demo.clinic",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_3__["default"],
   accent: "from-cyan-400/30 via-sky-400/20 to-indigo-500/20",
   translations: {
