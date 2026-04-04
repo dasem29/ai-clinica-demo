@@ -6003,5 +6003,50 @@ document.addEventListener("click", function (e) {
   });
 })();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("lead-submit");
+  if (!btn) return;
+
+  btn.addEventListener("click", async function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    const name = document.getElementById("lead-name")?.value || "";
+    const business = document.getElementById("lead-business_type")?.value || "";
+    const email = document.getElementById("lead-email")?.value || "";
+    const message = document.getElementById("lead-message")?.value || "";
+
+    const data = new FormData();
+    data.append("access_key", "CHEIA_TA_WEB3");
+    data.append("subject", "New lead - ClientDialog");
+    data.append("from_name", "ClientDialog Website");
+    data.append("name", name);
+    data.append("business_type", business);
+    data.append("email", email);
+    data.append("message", message);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      });
+
+      const result = await res.json();
+      console.log("WEB3 RESULT:", result);
+
+      if (result.success) {
+        alert("Trimis cu succes.");
+      } else {
+        alert("Eroare: " + JSON.stringify(result));
+      }
+    } catch (err) {
+      console.error("FETCH ERROR:", err);
+      alert("Eroare la request.");
+    }
+  }, true);
+});
+</script>
 </body>
 </html>
