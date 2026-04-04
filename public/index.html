@@ -6048,5 +6048,45 @@ document.addEventListener("DOMContentLoaded", function () {
   }, true);
 });
 </script>
+<script>
+(function () {
+  function toggleLang() {
+    const current = localStorage.getItem("site_lang") || "en";
+    const next = current === "en" ? "ro" : "en";
+    localStorage.setItem("site_lang", next);
+    location.reload();
+  }
+
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest("[data-lang-toggle]");
+    if (!btn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    toggleLang();
+  }, true);
+})();
+</script>
+<script>
+(function () {
+  document.addEventListener("click", function (e) {
+    const enBtn = e.target.closest('[data-testid="language-switcher-en"]');
+    const roBtn = e.target.closest('[data-testid="language-switcher-ro"]');
+
+    if (!enBtn && !roBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    if (enBtn) localStorage.setItem("site_lang", "en");
+    if (roBtn) localStorage.setItem("site_lang", "ro");
+
+    location.reload();
+  }, true);
+})();
+</script>
 </body>
 </html>

@@ -47366,7 +47366,7 @@ const localizedCopy = {
     }
   }
 };
-function getLocalizedContent(language = "en") {
+function getLocalizedContent(language = localStorage.getItem("site_lang") || "en") {
   const activeLanguage = language === "ro" ? "ro" : "en";
   const copy = localizedCopy[activeLanguage];
   return {
