@@ -42713,7 +42713,7 @@ function ContactSection({
             "x-component": "div",
             "x-id": "ConversionSections_217_12",
             "x-dynamic": "false",
-            children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(_components_ui_button__WEBPACK_IMPORTED_MODULE_4__.Button, {
+            children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("button", {
               type: "button",
 onClick: handleSubmit,
               "data-testid": "lead-form-submit-button",

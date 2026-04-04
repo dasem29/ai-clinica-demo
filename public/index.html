@@ -5985,55 +5985,5 @@ document.addEventListener("click", function (e) {
   }
 }, true);
 </script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector('form[data-testid="lead-form"]');
-  const btn = document.querySelector('[data-testid="lead-form-submit-button"]');
-
-  if (!form || !btn) return;
-
-  btn.addEventListener("click", async (e) => {
-    e.preventDefault();
-
-    const name = form.querySelector('input[name="name"]')?.value;
-    const email = form.querySelector('input[name="email"]')?.value;
-    const message = form.querySelector('textarea[name="message"]')?.value;
-    const business = form.querySelector('select[name="business_type"]')?.value;
-
-    if  (!name || !email) {
-      alert("Completează name și email");
-      return;
-    }
-
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          access_key: "cc538e4c-33a5-4b7b-83d5-291f57907172",
-          name,
-          email,
-          message,
-          business_type: business
-        })
-      });
-
-      const result = await res.json();
-
-      if (result.success) {
-        alert("MAIL TRIMIS ✔️");
-      } else {
-        alert("EROARE TRIMITERE");
-        console.log(result);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("FETCH ERROR");
-    }
-  });
-});
-</script>
 </body>
 </html>
