@@ -6050,28 +6050,12 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 (function () {
-  function toggleLang() {
-    const current = localStorage.getItem("site_lang") || "en";
-    const next = current === "en" ? "ro" : "en";
-    localStorage.setItem("site_lang", next);
-    location.reload();
+  function setLang(lang) {
+    localStorage.setItem("site_lang", lang);
+    window.location.reload();
   }
 
-  document.addEventListener("click", function (e) {
-    const btn = e.target.closest("[data-lang-toggle]");
-    if (!btn) return;
-
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-
-    toggleLang();
-  }, true);
-})();
-</script>
-<script>
-(function () {
-  document.addEventListener("click", function (e) {
+  function intercept(e) {
     const enBtn = e.target.closest('[data-testid="language-switcher-en"]');
     const roBtn = e.target.closest('[data-testid="language-switcher-ro"]');
 
@@ -6081,11 +6065,16 @@ document.addEventListener("DOMContentLoaded", function () {
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
 
-    if (enBtn) localStorage.setItem("site_lang", "en");
-    if (roBtn) localStorage.setItem("site_lang", "ro");
+    if (e.type === "click") {
+      setLang(enBtn ? "en" : "ro");
+    }
 
-    location.reload();
-  }, true);
+    return false;
+  }
+
+  document.addEventListener("pointerdown", intercept, true);
+  document.addEventListener("mousedown", intercept, true);
+  document.addEventListener("click", intercept, true);
 })();
 </script>
 </body>
