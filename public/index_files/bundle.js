@@ -42714,7 +42714,8 @@ function ContactSection({
             "x-id": "ConversionSections_217_12",
             "x-dynamic": "false",
             children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(_components_ui_button__WEBPACK_IMPORTED_MODULE_4__.Button, {
-              type: "submit",
+              type: "button",
+onClick: handleSubmit,
               "data-testid": "lead-form-submit-button",
               className: "rounded-full border border-sky-300/30 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500 px-7 text-slate-950 shadow-[0_20px_80px_rgba(66,147,255,0.35)] transition-transform duration-300 hover:-translate-y-0.5",
               "x-file-name": "ConversionSections",
