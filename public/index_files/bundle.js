@@ -42073,25 +42073,44 @@ function ContactSection({
       [name]: value
     }));
   };
-  const handleSubmit = event => {
-    event.preventDefault();
-    try {
-      const existingLeads = JSON.parse(window.localStorage.getItem(LEADS_STORAGE_KEY) || "[]");
-      window.localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify([...existingLeads, {
-        ...formState,
-        createdAt: new Date().toISOString()
-      }]));
-    } catch (error) {
-      console.error("Unable to save lead locally", error);
-    }
-    setIsSubmitted(true);
-    setFormState({
-      name: "",
-      businessType: contactContent.businessTypes[0],
-      email: "",
-      message: ""
+  const handleSubmit = async event => {
+  event.preventDefault();
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        access_key: "cc538e4c-33a5-4b7b-83d5-291f57907172",
+        name: formState.name,
+        email: formState.email,
+        message: formState.message,
+        business_type: formState.businessType
+      })
     });
-  };
+
+    const result = await res.json();
+
+    if (result.success) {
+      setIsSubmitted(true);
+      setFormState({
+        name: "",
+        businessType: contactContent.businessTypes[0],
+        email: "",
+        message: ""
+      });
+    } else {
+      console.error("Web3Forms error:", result);
+      alert("Eroare la trimitere formular.");
+    }
+  } catch (error) {
+    console.error("Unable to send lead", error);
+    alert("Eroare la trimitere formular.");
+  }
+};
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("section", {
     id: "contact",
     className: "section-shell px-6 py-20 sm:px-8 lg:px-10",
