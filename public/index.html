@@ -6102,20 +6102,41 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 (function () {
-  function goAuto(e) {
-    const autoBtn = e.target.closest('[data-testid="demo-card-button-auto"]');
-    if (!autoBtn) return;
+  function patchAutoCard() {
+    const oldBtn = document.querySelector('[data-testid="demo-card-button-auto"]');
+    if (!oldBtn) return false;
 
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    const newBtn = oldBtn.cloneNode(true);
+    newBtn.setAttribute("href", "/service-auto.demo");
+    newBtn.removeAttribute("target");
 
-    window.location.assign("/service-auto.demo");
-    return false;
+    newBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      window.location.href = "/service-auto.demo";
+      return false;
+    });
+
+    oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+    return true;
   }
 
-  document.addEventListener("pointerdown", goAuto, true);
-  document.addEventListener("click", goAuto, true);
+  function patchRepeatedly() {
+    patchAutoCard();
+    let tries = 0;
+    const timer = setInterval(() => {
+      patchAutoCard();
+      tries++;
+      if (tries > 20) clearInterval(timer);
+    }, 500);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", patchRepeatedly);
+  } else {
+    patchRepeatedly();
+  }
 })();
 </script>
 </body>
