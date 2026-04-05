@@ -19,6 +19,9 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="public"), name="static")
 
+@app.get("/service-auto.html")
+def service_auto_page():
+    return FileResponse(PUBLIC_DIR / "service-auto.html")
 
 app.add_middleware(
     CORSMiddleware,
