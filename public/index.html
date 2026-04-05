@@ -6100,5 +6100,23 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (e) {}
 })();
 </script>
+<script>
+(function () {
+  function goAuto(e) {
+    const autoBtn = e.target.closest('[data-testid="demo-card-button-auto"]');
+    if (!autoBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    window.location.assign("/service-auto.demo");
+    return false;
+  }
+
+  document.addEventListener("pointerdown", goAuto, true);
+  document.addEventListener("click", goAuto, true);
+})();
+</script>
 </body>
 </html>
