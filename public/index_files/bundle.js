@@ -46882,7 +46882,7 @@ const demoBusinessDefinitions = [{
   }
 }, {
   slug: "auto",
-  route: "/demo-auto",
+  route: "/service-auto.demo",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_14__["default"],
   accent: "from-orange-400/30 via-amber-400/20 to-rose-500/20",
   translations: {
