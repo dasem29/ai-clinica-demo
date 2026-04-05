@@ -21,5 +21,28 @@
       "nu oferi sfaturi medicale personalizate",
       "dacă utilizatorul cere operator uman, spune că cererea poate fi transmisă recepției"
     ]
+  },
+  "service_auto_demo": {
+    "name": "Service Auto Demo",
+    "business_type": "service auto",
+    "phone": "0733 000 000",
+    "email": "contact@serviceautodemo.ro",
+    "program": {
+      "luni_vineri": "08:00 - 18:00",
+      "sambata": "09:00 - 14:00",
+      "duminica": "închis"
+    },
+    "services": [
+      "diagnoză",
+      "revizii",
+      "frâne și suspensie",
+      "programări service"
+    ],
+    "rules": [
+      "nu inventa prețuri exacte fără constatare",
+      "nu promite termen final fără verificare",
+      "nu spune că problema e sigur una fără diagnoză",
+      "dacă utilizatorul cere operator uman, spune că cererea poate fi transmisă echipei service"
+    ]
   }
 }
