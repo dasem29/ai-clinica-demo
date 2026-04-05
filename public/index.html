@@ -6051,13 +6051,23 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 (function () {
   function setLang(lang) {
-    localStorage.setItem("site_lang", lang);
-    window.location.reload();
+    try {
+      localStorage.setItem("site_lang", lang);
+      localStorage.setItem("clientdialog-language", lang);
+    } catch (e) {}
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.location.replace(url.toString());
   }
 
   function intercept(e) {
-    const enBtn = e.target.closest('[data-testid="language-switcher-en"]');
-    const roBtn = e.target.closest('[data-testid="language-switcher-ro"]');
+    const enBtn = e.target.closest(
+      '[data-testid="language-switcher-en"], [data-testid="mobile-language-en"]'
+    );
+    const roBtn = e.target.closest(
+      '[data-testid="language-switcher-ro"], [data-testid="mobile-language-ro"]'
+    );
 
     if (!enBtn && !roBtn) return;
 
@@ -6065,16 +6075,29 @@ document.addEventListener("DOMContentLoaded", function () {
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
 
-    if (e.type === "click") {
-      setLang(enBtn ? "en" : "ro");
-    }
-
+    setLang(enBtn ? "en" : "ro");
     return false;
   }
 
   document.addEventListener("pointerdown", intercept, true);
-  document.addEventListener("mousedown", intercept, true);
   document.addEventListener("click", intercept, true);
+
+  // sync la load, ca să nu se bată cheile între ele
+  try {
+    const urlLang = new URLSearchParams(window.location.search).get("lang");
+    const siteLang = localStorage.getItem("site_lang");
+    const clientDialogLang = localStorage.getItem("clientdialog-language");
+    const lang =
+      (urlLang === "ro" || urlLang === "en") ? urlLang :
+      (siteLang === "ro" || siteLang === "en") ? siteLang :
+      (clientDialogLang === "ro" || clientDialogLang === "en") ? clientDialogLang :
+      null;
+
+    if (lang) {
+      localStorage.setItem("site_lang", lang);
+      localStorage.setItem("clientdialog-language", lang);
+    }
+  } catch (e) {}
 })();
 </script>
 </body>
