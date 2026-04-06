@@ -46950,7 +46950,7 @@ const demoBusinessDefinitions = [{
   }
 }, {
   slug: "real-estate",
-  route: "/demo-real-estate",
+  route: "/imobiliare.html",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"],
   accent: "from-violet-400/30 via-purple-400/20 to-sky-500/20",
   translations: {

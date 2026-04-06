@@ -19,6 +19,10 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="public"), name="static")
 
+@app.get("/imobiliare.demo")
+def imobiliare_page():
+    return FileResponse(PUBLIC_DIR / "imobiliare.html")
+
 @app.get("/hotel.demo")
 def hotel_page():
     return FileResponse(PUBLIC_DIR / "hotel.html")

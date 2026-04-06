@@ -6256,5 +6256,44 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 })();
 </script>
+<script>
+(function () {
+  function patchRealEstateCard() {
+    const oldBtn = document.querySelector('[data-testid="demo-card-button-real-estate"]');
+    if (!oldBtn) return false;
+
+    const newBtn = oldBtn.cloneNode(true);
+    newBtn.setAttribute("href", "/imobiliare.demo");
+    newBtn.removeAttribute("target");
+
+    newBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      window.location.href = "/imobiliare.demo";
+      return false;
+    });
+
+    oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+    return true;
+  }
+
+  function patchRepeatedly() {
+    patchRealEstateCard();
+    let tries = 0;
+    const timer = setInterval(() => {
+      patchRealEstateCard();
+      tries++;
+      if (tries > 20) clearInterval(timer);
+    }, 500);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", patchRepeatedly);
+  } else {
+    patchRepeatedly();
+  }
+})();
+</script>
 </body>
 </html>

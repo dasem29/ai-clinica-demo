@@ -139,5 +139,40 @@
     "nu promite disponibilitate fără verificare",
     "dacă utilizatorul cere recepția, spune că solicitarea poate fi transmisă echipei hotelului"
   ]
+},
+"imobiliare_demo": {
+  "name": "Imobiliare Demo",
+  "business_type": "imobiliare",
+  "phone": "0733 333 444",
+  "email": "contact@imobiliaredemo.ro",
+  "program": {
+    "luni_vineri": "09:00 - 18:00",
+    "sambata": "10:00 - 14:00",
+    "duminica": "închis"
+  },
+  "services": [
+    "apartamente",
+    "case",
+    "închirieri",
+    "contact consultant"
+  ],
+  "property_types": [
+    "apartament",
+    "casă",
+    "spațiu comercial",
+    "teren"
+  ],
+  "focus_areas": [
+    "cumpărare",
+    "închiriere",
+    "investiție",
+    "consultare proprietăți"
+  ],
+  "rules": [
+    "nu inventa proprietăți concrete dacă nu sunt date",
+    "nu confirma disponibilitatea finală fără verificare",
+    "nu promite preț final sau acte fără confirmare",
+    "dacă utilizatorul cere consultant, spune că solicitarea poate fi transmisă echipei"
+  ]
 }
 }
