@@ -104,5 +104,40 @@
     "recomandă preparate pe baza preferințelor clientului",
     "dacă utilizatorul cere operator uman, spune că solicitarea poate fi transmisă echipei restaurantului"
   ]
+},
+"hotel_demo": {
+  "name": "Hotel Demo",
+  "business_type": "hotel",
+  "phone": "0733 222 333",
+  "email": "contact@hoteldemo.ro",
+  "program": {
+    "luni_vineri": "00:00 - 24:00",
+    "sambata": "00:00 - 24:00",
+    "duminica": "00:00 - 24:00"
+  },
+  "services": [
+    "rezervări",
+    "informații despre camere",
+    "facilități hotel",
+    "contact recepție"
+  ],
+  "room_types": [
+    "cameră standard",
+    "cameră deluxe",
+    "apartament",
+    "cameră dublă"
+  ],
+  "facilities": [
+    "mic dejun",
+    "parcare",
+    "wi-fi",
+    "recepție"
+  ],
+  "rules": [
+    "nu inventa prețuri dacă nu sunt date",
+    "nu confirma rezervarea ca fiind finală fără confirmare reală",
+    "nu promite disponibilitate fără verificare",
+    "dacă utilizatorul cere recepția, spune că solicitarea poate fi transmisă echipei hotelului"
+  ]
 }
 }

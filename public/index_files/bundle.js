@@ -46933,7 +46933,7 @@ const demoBusinessDefinitions = [{
   }
 }, {
   slug: "hotel",
-  route: "/demo-hotel",
+  route: "/hotel.demo",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_9__["default"],
   accent: "from-blue-400/30 via-indigo-400/20 to-violet-500/20",
   translations: {
