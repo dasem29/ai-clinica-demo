@@ -46861,7 +46861,7 @@ const languageOptions = [{
 }];
 const sharedContact = {
   email: "contact@clientdialog.com",
-  phone: "+40 (000) 000-000"
+  phone: "+40 (747) 815 379"
 };
 const demoBusinessDefinitions = [{
   slug: "clinic",
