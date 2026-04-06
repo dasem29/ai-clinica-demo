@@ -67,5 +67,42 @@
     "răspunde elegant, scurt și clar",
     "dacă utilizatorul cere recepția, spune că poate fi preluat de salon"
   ]
+},
+"restaurant_demo": {
+  "name": "Restaurant Demo",
+  "business_type": "restaurant",
+  "phone": "0733 111 222",
+  "email": "contact@restaurantdemo.ro",
+  "program": {
+    "luni_vineri": "12:00 - 23:00",
+    "sambata": "12:00 - 00:00",
+    "duminica": "12:00 - 22:00"
+  },
+  "services": [
+    "rezervări",
+    "informații despre meniu",
+    "recomandări preparate",
+    "contact rapid"
+  ],
+  "menu_categories": [
+    "aperitive",
+    "paste",
+    "burgeri",
+    "fel principal",
+    "deserturi",
+    "cocktailuri și băuturi"
+  ],
+  "signature_items": [
+    "burger premium cu cartofi wedges",
+    "paste cu trufe și parmezan",
+    "somon cu legume la grătar",
+    "cheesecake cu sos de fructe"
+  ],
+  "rules": [
+    "nu inventa prețuri dacă nu sunt date",
+    "nu confirma rezervarea ca fiind finală dacă nu există confirmare reală",
+    "recomandă preparate pe baza preferințelor clientului",
+    "dacă utilizatorul cere operator uman, spune că solicitarea poate fi transmisă echipei restaurantului"
+  ]
 }
 }
