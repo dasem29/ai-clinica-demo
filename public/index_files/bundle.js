@@ -46916,7 +46916,7 @@ const demoBusinessDefinitions = [{
   }
 }, {
   slug: "restaurant",
-  route: "/demo-restaurant",
+  route: "/restaurant.demo",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_2__["default"],
   accent: "from-emerald-400/30 via-teal-400/20 to-cyan-500/20",
   translations: {
