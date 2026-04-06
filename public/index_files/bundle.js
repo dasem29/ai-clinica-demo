@@ -46899,7 +46899,7 @@ const demoBusinessDefinitions = [{
   }
 }, {
   slug: "salon",
-  route: "/demo-salon",
+  route: "/salon.demo",
   icon: lucide_react__WEBPACK_IMPORTED_MODULE_1__["default"],
   accent: "from-fuchsia-400/30 via-pink-400/20 to-violet-500/20",
   translations: {

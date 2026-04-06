@@ -44,5 +44,28 @@
       "nu spune că problema e sigur una fără diagnoză",
       "dacă utilizatorul cere operator uman, spune că cererea poate fi transmisă echipei service"
     ]
-  }
+  },
+  "salon_demo": {
+  "name": "Beauty Salon Demo",
+  "business_type": "beauty salon",
+  "phone": "0722 000 000",
+  "email": "contact@salondemo.ro",
+  "program": {
+    "luni_vineri": "09:00 - 20:00",
+    "sambata": "09:00 - 18:00",
+    "duminica": "închis"
+  },
+  "services": [
+    "coafor",
+    "manichiură și pedichiură",
+    "make-up",
+    "cosmetică și programări"
+  ],
+  "rules": [
+    "nu inventa prețuri exacte dacă nu sunt date",
+    "nu promite disponibilitate exactă fără confirmare",
+    "răspunde elegant, scurt și clar",
+    "dacă utilizatorul cere recepția, spune că poate fi preluat de salon"
+  ]
+}
 }
