@@ -700,142 +700,179 @@
       flex-shrink: 0;
     }
 
-    @media (max-width: 480px) {
+   @media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
   .demo-chip {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-    max-width: calc(100vw - 20px);
-    padding: 8px 10px;
-    font-size: 11px;
-    gap: 8px;
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-width: calc(100vw - 16px) !important;
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+    gap: 8px !important;
   }
 
   .demo-chip span:last-child {
-    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .launcher-wrap {
-    right: 12px;
-    bottom: 12px;
+    right: 12px !important;
+    bottom: 12px !important;
   }
 
   .launcher {
-    width: 64px;
-    height: 64px;
-    border-radius: 20px;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 18px !important;
   }
 
   .launcher svg {
-    width: 30px;
-    height: 30px;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .launcher-badge {
-    min-width: 20px;
-    height: 20px;
-    font-size: 10px;
-    padding: 0 6px;
+    min-width: 18px !important;
+    height: 18px !important;
+    font-size: 9px !important;
+    padding: 0 5px !important;
   }
 
   .widget {
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    border-radius: 0 !important;
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 84px !important;
+    top: auto !important;
+    width: calc(100vw - 20px) !important;
+    height: calc(100svh - 110px) !important;
+    max-height: calc(100svh - 110px) !important;
+    border-radius: 20px !important;
   }
 
-  .header {
-    padding: 14px;
+  .header,
+  .sidebar-head,
+  .chat-head,
+  .footer {
+    padding: 10px !important;
   }
 
-  .title {
-    font-size: 15px;
+  .title,
+  .chat-title {
+    font-size: 15px !important;
   }
 
-  .subtitle {
-    font-size: 11px;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
+  .subtitle,
+  .chat-meta,
+  .section-subtitle {
+    font-size: 11px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+  }
+
+  .avatar svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .close-btn {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
   }
 
   .statusbar {
-    margin-top: 10px;
-    padding: 8px 10px;
-    border-radius: 14px;
+    margin-top: 8px !important;
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
   }
 
   .status-text,
   .status-right {
-    font-size: 11px;
+    font-size: 10px !important;
   }
 
-  .quick-actions {
-    padding: 10px 12px 12px 12px;
-    gap: 6px;
+  .quick-actions,
+  .footer-actions,
+  .top-controls {
+    gap: 6px !important;
+    padding: 8px 10px 10px 10px !important;
   }
 
-  .quick-btn {
-    font-size: 11px;
-    padding: 9px 10px;
+  .quick-btn,
+  .ghost-btn,
+  .field {
+    font-size: 11px !important;
+    padding: 9px 10px !important;
   }
 
-  .messages {
-    padding: 14px 12px;
-    gap: 10px;
+  .messages,
+  .messages-wrap,
+  .conversation-list {
+    padding: 10px !important;
   }
 
   .msg-wrap {
-    max-width: 92%;
+    max-width: 92% !important;
   }
 
-  .msg {
-    font-size: 13px;
-    padding: 11px 12px;
-  }
-
-  .footer {
-    padding: 10px;
-  }
-
-  .input-shell {
-    gap: 8px;
-    padding: 8px;
+  .msg,
+  .msg-bubble {
+    font-size: 13px !important;
+    padding: 10px 11px !important;
   }
 
   .chat-input {
-    padding: 11px 12px;
-    font-size: 13px;
+    font-size: 16px !important;
+    padding: 11px 12px !important;
   }
 
   .send-btn {
-    min-width: 84px;
-    font-size: 13px;
-    padding: 0 14px;
-  }
-
-  .footer-actions {
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .ghost-btn {
-    padding: 9px 10px;
-    font-size: 11px;
+    min-width: 78px !important;
+    font-size: 13px !important;
+    padding: 0 12px !important;
   }
 
   .notice {
-    margin-top: 8px;
-    font-size: 10px;
+    margin-top: 6px !important;
+    font-size: 10px !important;
   }
-}
+
+  .layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .conversation-list {
+    height: 240px !important;
+  }
+
+  .messages-wrap {
+    min-height: calc(100svh - 320px) !important;
+  }
+} 
   </style>
 </head>
 <body>
